@@ -1,94 +1,184 @@
+/* ===== Reset & Global ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: #222;
-    background-image: URL(./Assets/bg.jpg) !important;
-    font-size: 120%;
-    background-size: cover;
-  }
-  
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+/* ===== Card Container ===== */
+.card {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===== Search Section ===== */
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1 1 70%;
+  padding: 0.65em 1em;
+  border: none;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.search-bar:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Weather Section ===== */
+.weather {
+  text-align: center;
+}
+
+.city {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Icon + Description */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.description {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+/* Other Info */
+.humidity,
+.wind {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  opacity: 0.85;
+}
+
+/* ===== Loading State ===== */
+.weather.loading {
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+
+.weather.loading::after {
+  visibility: visible;
+  content: "Loading...";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 1rem;
+}
+
+/* ===== Optional Link Class ===== */
+.link {
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0 0 10px 10px;
+}
+
+/* ===== Responsive Breakpoints ===== */
+@media (min-width: 600px) {
   .card {
-    background: #000000d0;
-    color: white;
-    padding: 2em;
-    border-radius: 30px;
-    width: 100%;
-    max-width: 420px;
-    margin: 1em;
+    padding: 2.5rem;
   }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .temp {
+    font-size: 3.2rem;
   }
-  
-  button {
-    margin: 0.5em;
-    border-radius: 50%;
-    border: none;
-    height: 44px;
-    width: 44px;
-    outline: none;
-    background: #7c7c7c2b;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  
-  input.search-bar {
-    border: none;
-    outline: none;
-    padding: 0.4em 1em;
-    border-radius: 24px;
-    background: #7c7c7c2b;
-    color: white;
-    font-family: inherit;
-    font-size: 105%;
-    width: calc(100% - 100px);
-  }
-  
-  button:hover {
-    background: #7c7c7c6b;
-  }
-  
-  h1.temp {
-    margin: 0;
-    margin-bottom: 0.4em;
-  }
-  
-  .flex {
-    display: flex;
-    align-items: center;
-  }
-  
+
   .description {
-    text-transform: capitalize;
-    margin-left: 8px;
+    font-size: 1.3rem;
   }
-  
-  .weather.loading {
-    visibility: hidden;
-    max-height: 20px;
-    position: relative;
+
+  .humidity,
+  .wind {
+    font-size: 1.1rem;
   }
-  
-  .weather.loading:after {
-    visibility: visible;
-    content: "Loading...";
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 20px;
+}
+
+@media (min-width: 900px) {
+  .card {
+    max-width: 600px;
   }
-  
-  .link {
-    position: absolute;
-    top: 0;
-    background: #000000d0;
-    color: white;
+
+  .icon {
+    width: 80px;
+    height: 80px;
   }
+
+  .search-bar {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 1.4rem;
+  }
+}
