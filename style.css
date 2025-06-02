@@ -9,6 +9,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   min-height: 100vh;
+  height:100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,6 +214,8 @@ body::before {
 .card {
   position: relative;
   z-index: 1;
+  overflow-y:auto;
+  max-height: 90vh;
   background-color: rgba(0, 0, 0, 0.5); /* Fallback if blur isn't supported */
 }
 
