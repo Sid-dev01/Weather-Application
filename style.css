@@ -182,3 +182,59 @@ button:hover {
     font-size: 1.4rem;
   }
 }
+
+/* New changes */
+/* Ensure body takes full height on all devices */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive background image settings */
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; /* Optional: creates a parallax feel on desktop */
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Overlay for improved readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3));
+}
+
+/* Ensure content is readable and centered properly */
+.card {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Fallback if blur isn't supported */
+}
+
+/* */
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1em;
+    border-radius: 20px;
+  }
+
+  input.search-bar {
+    font-size: 100%;
+    padding: 0.3em 1em;
+  }
+
+  h1.temp {
+    font-size: 1.8rem;
+  }
+
+  .search {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
