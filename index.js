@@ -1,6 +1,6 @@
 let weather = {
-  apiKey: "f327a81a2a120fd158a88e9528340ec5", // <-- Replace with your actual OpenWeatherMap API key
-  unsplashKey: "13LHSFlB7wrUNyEr8etcHcUW9K_lbuM9QcqXV7zkeng", // <-- Replace with your Unsplash API key
+  apiKey: "f327a81a2a120fd158a88e9528340ec5", 
+  unsplashKey: "13LHSFlB7wrUNyEr8etcHcUW9K_lbuM9QcqXV7zkeng", 
 
   fetchWeather: function (city) {
     fetch(
@@ -71,6 +71,7 @@ let weather = {
 // Event listeners
 document.querySelector(".search button").addEventListener("click", function () {
   weather.search();
+  document.querySelector(".search-bar").blur();
 });
 
 document
